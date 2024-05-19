@@ -4,6 +4,7 @@ def main():
     word_count = get_word_count(text)
     char_count = get_char_count(text)
     sorted_chars = sort_char_dict(char_count)
+    
     print(f'--- Begin report of {book_path} ---')
     print(f'{word_count} words found in the document\n')
     for i in sorted_chars:
@@ -38,7 +39,7 @@ def sort_on(dict):
 def sort_char_dict(dict):
     list_of_dicts = []
     for k, v in dict.items():
-        if k in 'abcdefghijklmnopqrstuvwxyz':
+        if k.isalpha():
             list_of_dicts.append({'char': k, 'count': v})
     list_of_dicts.sort(reverse=True, key=sort_on)
     return list_of_dicts
